@@ -21,7 +21,7 @@ public class Team {
 
     private String name;
 
-    @ManyToMany(mappedBy = "team")
+    @ManyToMany()
     private Set<Tournament> tournaments;
 
     @OneToMany(mappedBy = "teamOne")
@@ -30,7 +30,7 @@ public class Team {
     @OneToMany(mappedBy = "teamTwo")
     private Set<Game> gamesAsTeamTwo;
 
-    @ManyToMany(mappedBy = "team")
-    private Set<User> users;
+    @ManyToMany()
+    private Set<Account> accounts;
 
 }

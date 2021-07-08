@@ -13,7 +13,7 @@ import java.util.Set;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class User {
     private String email;
     private String username;
 
-    @ManyToMany(mappedBy = "team")
+    @ManyToMany()
     private Set<Team> teams;
 
 }

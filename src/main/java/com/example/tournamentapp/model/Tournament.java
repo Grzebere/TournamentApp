@@ -31,7 +31,7 @@ public class Tournament {
     @Enumerated
     Category category;
 
-    @ManyToMany(mappedBy = "tournament")
+    @ManyToMany()
     private Set<Team> teams;
 
     @OneToMany(mappedBy = "tournament")

@@ -26,7 +26,7 @@ public class Phase {
     @ManyToOne
     Tournament tournament;
 
-    @OneToMany
+    @OneToMany(mappedBy = "phase")
     Set<Game> games;
 
     //mappedby!!!
