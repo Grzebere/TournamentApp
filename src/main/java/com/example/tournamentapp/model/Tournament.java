@@ -25,7 +25,7 @@ public class Tournament {
     String prize;
     String organizer;
     String description;
-    String maximumNumberOfParticipants;
+    Integer maximumNumberOfParticipants;
 
     // ENUM!!! odpowiednio obsłużyć
     @Enumerated

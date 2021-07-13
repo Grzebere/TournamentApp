@@ -1,12 +1,15 @@
 package com.example.tournamentapp.service;
 
+import com.example.tournamentapp.exception.InvalidIdAddress;
 import com.example.tournamentapp.model.Account;
 import com.example.tournamentapp.model.Team;
+import com.example.tournamentapp.model.Tournament;
 import com.example.tournamentapp.repository.AccountRepository;
 import com.example.tournamentapp.repository.TeamRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -48,7 +51,20 @@ public class TeamService {
 
                 teamRepository.save(team);
             }
-
         }
     }
+
+    public List<Team> getAllTeams() {
+        return teamRepository.findAll();
+    }
+
+    public List<Tournament> getTournamentListForTeam(Long teamId) {
+        Optional<Team> teamOptional = teamRepository.findById(teamId);
+        if (teamOptional.isPresent()) {
+            return List.copyOf(teamOptional.get().getTournaments());
+        }
+        throw new InvalidIdAddress("No team with that Id in database");
+    }
+
+
 }
